@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { DataServiceService } from '../service/data-service.service';
 
 @Component({
@@ -6,15 +6,18 @@ import { DataServiceService } from '../service/data-service.service';
   templateUrl: './number-display-component.component.html',
   styleUrls: ['./number-display-component.component.css']
 })
-export class NumberDisplayComponentComponent {
-  public randomNumber!: number[];
+export class NumberDisplayComponentComponent implements OnInit {
+  public randomNumber: number[] = [];
 
-  constructor(private dataService : DataServiceService){
-    this.createNumber;
-    console.log(this.randomNumber);
+  constructor(private dataService: DataServiceService) {}
+
+  ngOnInit() {
+    this.createNumber(); // Chama a função para criar o número aleatório ao inicializar o componente
   }
-
-  createNumber(){
-    this.randomNumber = this.dataService.getResultado();
+  
+  createNumber() {
+    this.dataService.getRandomNumber(); // Gera o número aleatório
+    this.randomNumber = this.dataService.getResultado(); // Atribui o resultado ao array randomNumber
+    console.log(this.randomNumber); // Imprime o array com o número aleatório
   }
 }

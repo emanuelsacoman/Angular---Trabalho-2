@@ -10,11 +10,10 @@ import { DataServiceService } from '../service/data-service.service';
 export class RandomNumberComponentComponent {
   public isSendMessage: boolean = false;
 
-  constructor(private dataService : DataServiceService) { }
+  constructor(private dataService: DataServiceService) {}
 
-  sendMessage(){
-    this.dataService.getRandomNumber();
-    console.log(this.dataService.getRandomNumber());
+  sendMessage() {
+    this.dataService.getRandomNumber(); // Chama o método para gerar um número aleatório
+    console.log(this.dataService.getResultado()); // Imprime o resultado
   }
-
 }

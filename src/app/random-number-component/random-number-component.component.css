@@ -5,5 +5,20 @@
 
 body {
     background-color: #252525;
-    height: 100vh;
+    
+}
+
+button {
+    width: 100vw;
+    height: 5vh;
+    background-color: rgb(45, 255, 69);
+    font-size: 2em;
+}
+
+button:hover {
+    background-color: rgb(98, 255, 116);
+}
+
+button:active {
+    color: #fff;
 }

@@ -5,28 +5,26 @@ import { Injectable } from '@angular/core';
 })
 
 export class DataServiceService { 
-  public array!: number[];
+  private array: number[] = []; // Altere para "private" para encapsular o array
 
   constructor() {
-    this.array = [];
-  }
-
-  getResultado(){
-    return this.array;
-  }
-
-  setArray(resultado : number){
-    return this.array.push(resultado);
+    // Não é necessário inicializar o array vazio aqui, já que foi inicializado acima
   }
   
-  getRandomNumber() {
-    let min: number = 1;
-    let max: number = 100;
+  getResultado(): number[] {
+    return this.array;
+  }
+  
+  setArray(resultado: number): void {
+    this.array.push(resultado); // Não é necessário retornar o push
+  }
+  
+  getRandomNumber(): number {
+    const min: number = 1; // Use "const" para declarar constantes
+    const max: number = 100;
 
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    let resultado = Math.floor(Math.random() * (max - min) + min);
+    const resultado: number = Math.floor(Math.random() * (max - min + 1) + min); // Corrija o cálculo para incluir o número máximo
+    this.setArray(resultado); // Adicione o resultado ao array usando o método setArray
     return resultado;
   }
-
 }
