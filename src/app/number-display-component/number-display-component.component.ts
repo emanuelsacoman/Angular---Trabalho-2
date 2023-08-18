@@ -10,14 +10,15 @@ export class NumberDisplayComponentComponent implements OnInit {
   public randomNumber: number[] = [];
 
   constructor(private dataService: DataServiceService) {}
+  //chat gpt me ensinou a usar o ngOnInit()
 
   ngOnInit() {
-    this.createNumber(); // Chama a função para criar o número aleatório ao inicializar o componente
+    this.createNumber();
   }
   
   createNumber() {
-    this.dataService.getRandomNumber(); // Gera o número aleatório
-    this.randomNumber = this.dataService.getResultado(); // Atribui o resultado ao array randomNumber
-    console.log(this.randomNumber); // Imprime o array com o número aleatório
+    this.dataService.getRandomNumber();
+    this.randomNumber = this.dataService.getResultado();
+    console.log(this.randomNumber);
   }
 }

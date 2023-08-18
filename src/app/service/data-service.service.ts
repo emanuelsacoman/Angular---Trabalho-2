@@ -5,26 +5,26 @@ import { Injectable } from '@angular/core';
 })
 
 export class DataServiceService { 
-  private array: number[] = []; // Altere para "private" para encapsular o array
+  private array: number[] = [];
 
-  constructor() {
-    // Não é necessário inicializar o array vazio aqui, já que foi inicializado acima
-  }
+  constructor() { }
   
   getResultado(): number[] {
     return this.array;
   }
   
-  setArray(resultado: number): void {
-    this.array.push(resultado); // Não é necessário retornar o push
+  setArray(result: number): void {
+    this.array.push(result);
   }
   
   getRandomNumber(): number {
-    const min: number = 1; // Use "const" para declarar constantes
+    //fórmula fornecida pelo chat gpt
+    
+    const min: number = 1;
     const max: number = 100;
 
-    const resultado: number = Math.floor(Math.random() * (max - min + 1) + min); // Corrija o cálculo para incluir o número máximo
-    this.setArray(resultado); // Adicione o resultado ao array usando o método setArray
-    return resultado;
+    const result: number = Math.floor(Math.random() * (max - min + 1) + min);
+    this.setArray(result);
+    return result;
   }
 }
